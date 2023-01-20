@@ -31,7 +31,7 @@ namespace Inicial
 
         private string removeNonDigits(string cpf)
         {
-            return Regex.Replace(cpf, @"\D +/ g", "");
+            return cpf.Replace(".", "").Replace("-", "");
         }
 
         private bool isValidLength(string cpf)
@@ -54,7 +54,7 @@ namespace Inicial
             {
                 if (factor > 1)
                 {
-                    total += Convert.ToInt32(digit) * factor--;
+                    total += Convert.ToInt32(Convert.ToString(digit)) * factor--;
                 }
             }
     
@@ -64,10 +64,10 @@ namespace Inicial
 
         private string extractCheckDigit(string cpf)
         {
-            return cpf.Substring(-2);
+            return cpf.Substring(9);
         }
 
-        private string getValue()
+        public string GetValue()
         {
             return this._value;
         }
