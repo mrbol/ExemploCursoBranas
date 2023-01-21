@@ -49,15 +49,13 @@ namespace Inicial
         private int calculateDigit(string cpf, int factor)
         {
             var total = 0;
-
             foreach (var digit in cpf)
             {
                 if (factor > 1)
                 {
                     total += Convert.ToInt32(Convert.ToString(digit)) * factor--;
                 }
-            }
-    
+            }    
             var rest = total % 11;
             return (rest < 2) ? 0 : 11 - rest;
         }
