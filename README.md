@@ -12,8 +12,8 @@ Uma aplicação completa, do frontend ao backend, dividida em vários microservi
 - [x] Deve criar um pedido com cupom de desconto (percentual sobre total do pedido)
 
 ### 📑 Projeto - Parte 2
-- [ ] Não deve aplicar cupom de desconto expirado
-- [ ] Ao fazer um pedido, a quantidade de um item não pode ser negativa
+- [x] Não deve aplicar cupom de desconto expirado
+- [x] Ao fazer um pedido, a quantidade de um item não pode ser negativa
 - [ ] Ao fazer um pedido, o mesmo item não pode ser informado mais de uma vez
 - [ ] Nenhuma dimensão do item pode ser negativa
 - [ ] O peso do item não pode ser negativo
