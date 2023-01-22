@@ -11,7 +11,7 @@ Uma aplicação completa, do frontend ao backend, dividida em vários microservi
 - [x] Deve um pedido com 3 itens( com descrição e quantidade)
 - [x] Deve criar um pedido com cupom de desconto (percentual sobre total do pedido)
 
-### 📑 Projeto - Parte 2
+### 📑 Implementação do Projeto - Parte 2 (TDD e Refactoring)
 - [x] Não deve aplicar cupom de desconto expirado
 - [x] Ao fazer um pedido, a quantidade de um item não pode ser negativa
 - [ ] Ao fazer um pedido, o mesmo item não pode ser informado mais de uma vez
