@@ -8,5 +8,14 @@ Uma aplicação completa, do frontend ao backend, dividida em vários microservi
 
 ### 📑 Implementação do Projeto - Parte 1 (TDD e Refactoring)
 - [x] Não deve criar um pedido com cpf invalido
-- [ ] Deve um pedido com 3 itens( com descrição e quantidade)
-- [ ] Deve criar um pedido com cupom de desconto (percentual sobre total do pedido)
+- [x] Deve um pedido com 3 itens( com descrição e quantidade)
+- [x] Deve criar um pedido com cupom de desconto (percentual sobre total do pedido)
+
+### 📑 Projeto - Parte 2
+- [ ] Não deve aplicar cupom de desconto expirado
+- [ ] Ao fazer um pedido, a quantidade de um item não pode ser negativa
+- [ ] Ao fazer um pedido, o mesmo item não pode ser informado mais de uma vez
+- [ ] Nenhuma dimensão do item pode ser negativa
+- [ ] O peso do item não pode ser negativo
+- [ ] Deve calcular o valor do frete com base nas dimensões (altura, largura e profundidade em cm) e o peso dos produtos (em kg)
+- [ ] Deve retornar o preço mínimo de frete caso ele seja superior ao valor calculado
