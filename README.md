@@ -8,5 +8,5 @@ Uma aplicação completa, do frontend ao backend, dividida em vários microservi
 
 ### 📑 Implementação do Projeto - Parte 1 (TDD e Refactoring)
 - [x] Não deve criar um pedido com cpf invalido
-- [ ] Deve um pedido com 3 itens( com descrição e quantidade)
-- [ ] Deve criar um pedido com cupom de desconto (percentual sobre total do pedido)
+- [x] Deve um pedido com 3 itens( com descrição e quantidade)
+- [x] Deve criar um pedido com cupom de desconto (percentual sobre total do pedido)
