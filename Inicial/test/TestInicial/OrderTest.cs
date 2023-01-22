@@ -60,7 +60,7 @@ namespace TestInicial
             order.AddItem(new Item(1, "Guitarra", 1000), 1);
             order.AddItem(new Item(2, "Amplificador", 5000), 1);
             order.AddItem(new Item(3, "Cabo", 30), 3);
-            order.AddCoupon(new Coupon("VALE20", 20));
+            order.AddCoupon(new Coupon("VALE20", 20, DateTime.Parse("2023-03-01T10:00:00")));
 
             //Act
             decimal total = order.GetTotal();
@@ -68,5 +68,37 @@ namespace TestInicial
             //Assert
             Assert.Equal(4872, total);
         }
-    }
+
+        [Fact(DisplayName = "Deve Criar um Pedido com 3 itens com cupom de desconto expirado")]
+        public void CriarPedido_ComTresItens_ComCupomDesconto_Expirado()
+        {
+            //Arrange
+            Order order = new Order("886.634.854-68", DateTime.Parse("2022-03-10T10:00:00"));
+            order.AddItem(new Item(1, "Guitarra", 1000), 1);
+            order.AddItem(new Item(2, "Amplificador", 5000), 1);
+            order.AddItem(new Item(3, "Cabo", 30), 3);
+            order.AddCoupon(new Coupon("VALE20", 20, DateTime.Parse("2022-03-01T10:00:00")));
+
+            //Act
+            decimal total = order.GetTotal();
+
+            //Assert
+            Assert.Equal(6090, total);
+        }
+
+        [Fact(DisplayName = "Deve Criar um Pedido com quantidade de item negativa")]
+        public void CriarPedido_ComQuantidadeNegativa()
+        {
+
+            //Arrange
+            Order order = new Order("886.634.854-68");
+            string message = "Invalid quantity";
+
+            //Act
+            var myException = Assert.Throws<Exception>(() => order.AddItem(new Item(1, "Guitarra", 1000), -1));
+
+            //Assert
+            Assert.Equal(message, myException.Message);
+        }
+    }   
 }

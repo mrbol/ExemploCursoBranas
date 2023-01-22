@@ -11,22 +11,36 @@ namespace Inicial
         private Coupon _coupon;
         private List<OrderItem> _orderItems;
         private Cpf _cpf;
+        private DateTime _date;
 
-        public Order(string cpf)
+        public DateTime Date
+        {
+            get => _date.CompareTo(default(DateTime)) == 0 ? DateTime.Now : _date;
+            set => _date = value;
+        }
+
+        public Order(string cpf, DateTime date = new DateTime())
         {
             _cpf = new Cpf(cpf);
             _orderItems = new List<OrderItem>();
+            Date = date;
         }
 
         public void AddItem(Item item, int quantity)
         {
+
             _orderItems.Add(new OrderItem(item.IdItem, item.Price, quantity));
         }
 
         public void AddCoupon(Coupon coupon)
         {
+            if (coupon.IsExpired(Date))
+            {
+                return;
+            }
             _coupon = coupon;
         }
+
         public decimal GetTotal()
         {
             decimal total = 0;

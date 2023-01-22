@@ -14,6 +14,11 @@ namespace Inicial
 
         public OrderItem(int idItem, decimal price, int quantity)
         {
+            if (quantity <= 0)
+            {
+                throw new Exception("Invalid quantity");
+            }
+
             IdItem = idItem;
             Price = price;
             Quantity = quantity;
