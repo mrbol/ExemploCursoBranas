@@ -8,10 +8,11 @@ namespace Inicial
 {
     public class Order
     {
-        private Coupon _coupon;
+        private Coupon? _coupon;
         private List<OrderItem> _orderItems;
         private Cpf _cpf;
         private DateTime _date;
+        private decimal _freight = 0;
 
         public DateTime Date
         {
@@ -28,8 +29,12 @@ namespace Inicial
 
         public void AddItem(Item item, int quantity)
         {
-
+            if (_orderItems.Exists(p => p.IdItem == item.IdItem))
+            {
+                throw new Exception("Duplicate item");
+            }
             _orderItems.Add(new OrderItem(item.IdItem, item.Price, quantity));
+            _freight += FreightCalculator.Calculate(item) * quantity;
         }
 
         public void AddCoupon(Coupon coupon)
@@ -52,6 +57,7 @@ namespace Inicial
             {
                 total -= _coupon.GetDiscount(total);
             }
+            total += _freight;
             return total;
         }
 

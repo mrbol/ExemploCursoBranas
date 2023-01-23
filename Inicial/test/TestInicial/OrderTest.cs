@@ -100,5 +100,37 @@ namespace TestInicial
             //Assert
             Assert.Equal(message, myException.Message);
         }
+
+        [Fact(DisplayName = "Deve Criar um Pedido com item duplicado")]
+        public void CriarPedido_ComItem_Duplicado()
+        {
+
+            //Arrange
+            Order order = new Order("886.634.854-68");
+            string message = "Duplicate item";
+
+            //Act
+            order.AddItem(new Item(1, "Guitarra", 1000),1);
+            var myException = Assert.Throws<Exception>(() => order.AddItem(new Item(1, "Guitarra", 1000), -1));
+
+            //Assert
+            Assert.Equal(message, myException.Message);
+        }
+
+        [Fact(DisplayName = "Deve Criar um Pedido com 3 itens e calcular o frete")]
+        public void CriarPedido_ComTresItens_CalcularFrete()
+        {
+            //Arrange
+            Order order = new Order("886.634.854-68");
+            order.AddItem(new Item(1, "Guitarra", 1000, new Dimension(100,30,10,3)), 1);
+            order.AddItem(new Item(2, "Amplificador", 5000, new Dimension(50,50,50,20)), 1);
+            order.AddItem(new Item(3, "Cabo", 30, new Dimension(10, 10, 10, 1)), 3);
+
+            //Act
+            decimal total = order.GetTotal();
+
+            //Assert
+            Assert.Equal(6350, total);
+        }
     }   
 }
