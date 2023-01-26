@@ -21,7 +21,7 @@ Uma aplicação completa, do frontend ao backend, dividida em vários microservi
 - [x] Deve retornar o preço mínimo de frete caso ele seja superior ao valor calculado
 
 ### 📑 Ports and Adapters
-- [x] Refatorar o metodo OrderPreview e aplicar os conceitos de Ports and Adapters
+- [x] Refatorar o controle OrderPreview e aplicar os conceitos de Ports and Adapters
 
 ### Implementação do Projeto - Parte 3
 - [ ] Deve gerar o código do pedido
