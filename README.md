@@ -23,9 +23,9 @@ Uma aplicação completa, do frontend ao backend, dividida em vários microservi
 ### 📑 Ports and Adapters
 - [x] Refatorar o controle OrderPreview e aplicar os conceitos de Ports and Adapters
 
-### Clean Architecture - Parte 1
+### 📑 Clean Architecture - Parte 1
 
-### Implementação do Projeto - Parte 3
+### 📑 Implementação do Projeto - Parte 3
 - [ ] Deve gerar o código do pedido
 - [ ] Deve fazer um pedido (caso de uso)
 - [ ] Deve simular o frete (caso de uso)
