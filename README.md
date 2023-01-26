@@ -14,8 +14,18 @@ Uma aplicação completa, do frontend ao backend, dividida em vários microservi
 ### 📑 Implementação do Projeto - Parte 2 (TDD e Refactoring)
 - [x] Não deve aplicar cupom de desconto expirado
 - [x] Ao fazer um pedido, a quantidade de um item não pode ser negativa
-- [ ] Ao fazer um pedido, o mesmo item não pode ser informado mais de uma vez
-- [ ] Nenhuma dimensão do item pode ser negativa
-- [ ] O peso do item não pode ser negativo
-- [ ] Deve calcular o valor do frete com base nas dimensões (altura, largura e profundidade em cm) e o peso dos produtos (em kg)
-- [ ] Deve retornar o preço mínimo de frete caso ele seja superior ao valor calculado
+- [x] Ao fazer um pedido, o mesmo item não pode ser informado mais de uma vez
+- [x] Nenhuma dimensão do item pode ser negativa
+- [x] O peso do item não pode ser negativo
+- [x] Deve calcular o valor do frete com base nas dimensões (altura, largura e profundidade em cm) e o peso dos produtos (em kg)
+- [x] Deve retornar o preço mínimo de frete caso ele seja superior ao valor calculado
+
+### 📑 Ports and Adapters
+- [x] Ports and Adapters
+- [x] Inversão de dependência
+
+### Implementação do Projeto - Parte 3
+- [ ] Deve gerar o código do pedido
+- [ ] Deve fazer um pedido (caso de uso)
+- [ ] Deve simular o frete (caso de uso)
+- [ ] Deve validar o cupom de desconto (caso de uso)
