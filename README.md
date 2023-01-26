@@ -22,7 +22,7 @@ Uma aplicação completa, do frontend ao backend, dividida em vários microservi
 
 ### 📑 Ports and Adapters
 - [x] Ports and Adapters
-- [x] Inversão de dependência
+- [x] Iniciar a implementação com Ports and Adapters
 
 ### Implementação do Projeto - Parte 3
 - [ ] Deve gerar o código do pedido
