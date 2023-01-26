@@ -19,7 +19,7 @@ namespace Inicial
             set => _dimension = (value != null) ? value : new Dimension();
         }
 
-        public Item(int idItem, string description, decimal price, Dimension? dimension = default)
+        public Item(int idItem=0, string description="", decimal price=0, Dimension dimension = null)
         {
             IdItem = idItem;
             Description = description;
