@@ -35,7 +35,7 @@ namespace TestInicial
             int total = 6350;
             using StringContent jsonContent = new(JsonSerializer.Serialize(new
             {
-                cpf = "071.899.637-23",
+                cpf = "886.634.854-68",
                 orderItens = new[] {
                     new { idItem = 1, quantity = 1 },
                     new { idItem = 2, quantity = 1 },
