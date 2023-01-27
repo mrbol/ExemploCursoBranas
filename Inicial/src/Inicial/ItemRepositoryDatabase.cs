@@ -29,6 +29,7 @@ namespace Inicial
                 ItemModel? itemModel = (itemModels.Any()) ? itemModels.FirstOrDefault() : null;
                 if (itemModel != null)
                 {
+                    int i = itemModel.id_item;
                     item = new Item(itemModel.id_item, itemModel.description, itemModel.price, new Dimension(itemModel.width, itemModel.height, itemModel.length, itemModel.weight));                    
                 }
                 await connection.CloseAsync();
