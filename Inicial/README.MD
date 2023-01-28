@@ -1,4 +1,4 @@
-# 🏫 EXEMPLOS DAS AULAS
+# 🏫 EXEMPLOS INICIAS DAS AULAS
 
 ### 📑 Implementação do Projeto - Parte 1 (TDD e Refactoring)
 - [x] Não deve criar um pedido com cpf invalido
