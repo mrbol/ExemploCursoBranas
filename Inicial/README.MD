@@ -1,4 +1,5 @@
 # 🏫 EXEMPLOS INICIAS DAS AULAS
+#### Sem distribuição de camadas fisicas (pastas) porém com distribuição de camadas lógicas(implementação de codigo). 
 
 ### 📑 Implementação do Projeto - Parte 1 (TDD e Refactoring)
 - [x] Não deve criar um pedido com cpf invalido
