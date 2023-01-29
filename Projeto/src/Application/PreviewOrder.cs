@@ -1,32 +1,32 @@
-﻿using Microsoft.Data.SqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dapper;
-using Inicial.DTO;
+using Domain.DTO;
+using Domain.Entities;
+using Domain.Interface;
 
-namespace Inicial
+namespace Application
 {
-    public class OrderService:IOrderService
+    public class PreviewOrder:IPreviewOrder
     {
         private readonly IItemRepository _itemRepository;
-        public OrderService(IItemRepository itemRepository)
+        public PreviewOrder(IItemRepository itemRepository)
         {
             _itemRepository = itemRepository;
         }
 
-        public async Task<OrderPreviewResponse> Execute(OrderPreviewSend input)
+        public async Task<OrderPreviewResponse> Execute(OrderPreviewSend orderPreview)
         {
-            Order order = new Order(input.Cpf);
-            foreach (OrderItemSend orderItem in input.OrderItens)
+            Order order = new Order(orderPreview.Cpf);
+            foreach (OrderItemSend orderItem in orderPreview.OrderItens)
             {
                 Item item = await _itemRepository.GetItem(orderItem.IdItem);
                 order.AddItem(item, orderItem.Quantity);
-            }   
+            }
             return new OrderPreviewResponse() { Total = order.GetTotal() };
         }
     }
-
 }

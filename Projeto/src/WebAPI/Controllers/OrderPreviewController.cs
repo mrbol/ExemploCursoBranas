@@ -1,13 +1,9 @@
-﻿using Inicial.DTO;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Data.SqlClient;
-using Dapper;
-using Inicial;
-using System.Security.Cryptography.Xml;
+using Domain.Interface;
+using Domain.DTO;
 
-namespace API.Inicial.Controllers
+namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -16,13 +12,7 @@ namespace API.Inicial.Controllers
         private readonly IPreviewOrder _previewOrder;
         public OrderPreviewController(IPreviewOrder previewOrder)
         {
-            _previewOrder= previewOrder;
-        }
-
-        [HttpGet]
-        public IActionResult Index()
-        {
-            return Ok();
+            _previewOrder = previewOrder;
         }
 
         [HttpPost]

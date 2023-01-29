@@ -7,8 +7,10 @@ using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Domain.Entities;
+using Domain.Interface;
 
-namespace Inicial
+namespace Infra.Persistence
 {
     public class ItemRepositoryDatabase : IItemRepository
     {       

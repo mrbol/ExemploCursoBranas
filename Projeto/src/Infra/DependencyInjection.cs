@@ -5,18 +5,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Entities;
+using Domain.Interface;
+using Infra.Persistence;
 
-namespace Inicial
+namespace Infra
 {
     public static class DependencyInjection
     {
-        public static void AddDependencyInject(this IServiceCollection services, IConfiguration configuration)
+        public static void AddPersistenceInject(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSingleton<IConfiguration>(configuration);
-            services.AddScoped<IItemRepository, ItemRepositoryDatabase>();
-            services.AddScoped<IPreviewOrder, PreviewOrder>();
             services.AddScoped<IDapperAdapter, DapperAdapter>();
+            services.AddScoped<IItemRepository, ItemRepositoryDatabase>();
+            services.AddScoped<IItemRepository, ItemRepositoryMemory>();
         }
     }
 }
-
