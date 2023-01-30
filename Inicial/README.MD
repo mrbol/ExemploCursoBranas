@@ -21,9 +21,3 @@
 ### 📑 Clean Architecture - Parte 1
 - [x] Conceitos
 - [x] Identificação das camadas logicos
-
-### 📑 Implementação do Projeto - Parte 3
-- [ ] Deve gerar o código do pedido
-- [ ] Deve fazer um pedido (caso de uso)
-- [ ] Deve simular o frete (caso de uso)
-- [ ] Deve validar o cupom de desconto (caso de uso)
