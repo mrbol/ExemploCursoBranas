@@ -15,6 +15,12 @@ namespace WebAPI.Controllers
             _previewOrder = previewOrder;
         }
 
+        [HttpGet]
+        public IActionResult Index()
+        {
+            return Ok("oi");
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post(OrderPreviewSend orderPreviewSend)
         {

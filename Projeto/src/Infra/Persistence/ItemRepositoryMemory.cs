@@ -12,12 +12,10 @@ namespace Infra.Persistence
 {
     public class ItemRepositoryMemory : IItemRepository
     {
-        private List<Item> _items;
-        private readonly IConfiguration _configuration;
+        private List<Item> _items;        
 
-        public ItemRepositoryMemory(IConfiguration configuration)
-        {
-            _configuration = configuration;
+        public ItemRepositoryMemory()
+        {            
             _items = new List<Item>() {
                 new Item(1,"Guitarra",1000,new Dimension(100,30,10,3)),
                 new Item(2,"Amplificador",5000,new Dimension(50,50,50,20)),

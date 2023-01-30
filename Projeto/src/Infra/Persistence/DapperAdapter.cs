@@ -13,6 +13,7 @@ using System.Data;
 using Domain.Entities;
 using Domain.Interface;
 
+
 namespace Infra.Persistence
 {
     public class DapperAdapter : IDapperAdapter
@@ -33,7 +34,7 @@ namespace Infra.Persistence
             item = (items.Any()) ? items.FirstOrDefault() : default;
             if (item == null)
             {
-                throw new Exception("not found");
+                throw new AppExceptionNotFound("The searched item was not found. check the entered value.");
             }
             return item;
         }

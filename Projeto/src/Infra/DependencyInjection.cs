@@ -18,7 +18,6 @@ namespace Infra
             services.AddSingleton<IConfiguration>(configuration);
             services.AddScoped<IDapperAdapter, DapperAdapter>();
             services.AddScoped<IItemRepository, ItemRepositoryDatabase>();
-            services.AddScoped<IItemRepository, ItemRepositoryMemory>();
         }
     }
 }

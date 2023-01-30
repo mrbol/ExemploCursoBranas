@@ -17,7 +17,7 @@ namespace Domain.Entities
         {
             if (width < 0 || height < 0 || length < 0 || weight < 0)
             {
-                throw new Exception("Invalid dimensions");
+                throw new AppException("Invalid dimensions");
             }
             Width = width;
             Height = height;

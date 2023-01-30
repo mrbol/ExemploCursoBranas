@@ -12,7 +12,7 @@ namespace Domain.Entities
 
         public Cpf(string value)
         {
-            if (!this.validate(value)) throw new Exception("Cpf Inválido");
+            if (!this.validate(value)) throw new AppException("Cpf Inválido");
             _value = value;
         }
 

@@ -31,7 +31,7 @@ namespace Domain.Entities
         {
             if (_orderItems.Exists(p => p.IdItem == item.IdItem))
             {
-                throw new Exception("Duplicate item");
+                throw new AppException("Duplicate item");
             }
             _orderItems.Add(new OrderItem(item.IdItem, item.Price, quantity));
             _freight += FreightCalculator.Calculate(item) * quantity;

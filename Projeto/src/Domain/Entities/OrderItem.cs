@@ -16,7 +16,7 @@ namespace Domain.Entities
         {
             if (quantity <= 0)
             {
-                throw new Exception("Invalid quantity");
+                throw new AppException("Invalid quantity");
             }
 
             IdItem = idItem;
