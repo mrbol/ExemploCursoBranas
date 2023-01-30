@@ -1,7 +1,7 @@
 using Application;
 using Infra;
 using Microsoft.AspNetCore.Mvc;
-using WebAPI.Helpers;
+using WebAPI.Extensions;
 using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
