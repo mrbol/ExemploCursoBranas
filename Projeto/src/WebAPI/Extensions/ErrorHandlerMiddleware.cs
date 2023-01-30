@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Net;
 using System.Text.Json;
 
-namespace WebAPI.Helpers
+namespace WebAPI.Extensions
 {
     public class ErrorHandlerMiddleware
     {
@@ -38,19 +38,19 @@ namespace WebAPI.Helpers
             switch (ex)
             {
                 case AppExceptionBadRequest:
-                    response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    title = "One or more validation errors occurred";
-                    type = "https://www.rfc-editor.org/rfc/rfc7231#section-6.5.1";
+                    response.StatusCode = ((AppExceptionBadRequest)ex).StatusCode;
+                    title = ((AppExceptionBadRequest)ex).Title;
+                    type = ((AppExceptionBadRequest)ex).Type;
                     break;
                 case AppExceptionNotFound:
-                    response.StatusCode = (int)HttpStatusCode.NotFound;
-                    title = "Not Found";
-                    type = "https://www.rfc-editor.org/rfc/rfc7231#section-6.5.4";
+                    response.StatusCode = ((AppExceptionNotFound)ex).StatusCode;
+                    title = ((AppExceptionNotFound)ex).Title;
+                    type = ((AppExceptionNotFound)ex).Type;
                     break;
                 case AppException:
-                    response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    title = "Bad Request";
-                    type = "https://www.rfc-editor.org/rfc/rfc7231#section-6.5.1";
+                    response.StatusCode = ((AppExceptionBadRequest)ex).StatusCode;
+                    title = ((AppExceptionBadRequest)ex).Title;
+                    type = ((AppExceptionBadRequest)ex).Type;
                     break;
                 default:
                     response.StatusCode = (int)HttpStatusCode.InternalServerError;
@@ -65,7 +65,7 @@ namespace WebAPI.Helpers
                 Status = response.StatusCode,
                 Instance = context.Request.Path,
                 Detail = ex.Message
-            };           
+            };
             var result = JsonSerializer.Serialize(problemDetails);
             context.Response.ContentType = "application/json";
             await context.Response.WriteAsync(result);
