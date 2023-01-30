@@ -48,9 +48,9 @@ namespace WebAPI.Extensions
                     type = ((AppExceptionNotFound)ex).Type;
                     break;
                 case AppException:
-                    response.StatusCode = ((AppExceptionBadRequest)ex).StatusCode;
-                    title = ((AppExceptionBadRequest)ex).Title;
-                    type = ((AppExceptionBadRequest)ex).Type;
+                    response.StatusCode = ((AppException)ex).StatusCode;
+                    title = ((AppException)ex).Title;
+                    type = ((AppException)ex).Type;
                     break;
                 default:
                     response.StatusCode = (int)HttpStatusCode.InternalServerError;
