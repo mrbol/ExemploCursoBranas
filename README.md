@@ -15,4 +15,4 @@ Uma aplicação completa, do frontend ao backend, dividida em vários microservi
 ### ⏳ [Projeto (Em andamento)](https://github.com/mrbol/ExemploCursoBranas/tree/master/Projeto)
 - [x] Estruturado em camadas (fisica e logica) com o foco em Clean Architecture.
 - [x] Clean Architecture - Parte 2
-- [ ] Clean Architecture - Parte 3
+- [x] Clean Architecture - Parte 3
