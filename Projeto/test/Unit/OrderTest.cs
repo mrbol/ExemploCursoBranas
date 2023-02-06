@@ -1,11 +1,8 @@
-﻿using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
-using System.Xml.Linq;
-using Domain.Entities;
-using System.ComponentModel.DataAnnotations;
+﻿using Domain.Entities;
 
 namespace Unit
 {
-    
+
     public class OrderTest
     {
         [Fact(DisplayName ="Deve criar um pedido vazio")]
@@ -131,6 +128,23 @@ namespace Unit
 
             //Assert
             Assert.Equal(6350, total);
+        }
+
+        [Fact(DisplayName = "Deve Criar um Pedido e gerar codigo ")]
+        public void CriarPedido_GeraCidgo()
+        {
+
+            //Arrange
+            Order order = new Order("886.634.854-68",DateTime.Parse("2022-03-01T10:00:00"),1);
+            order.AddItem(new Item(1, "Guitarra", 1000), 1);
+            order.AddItem(new Item(2, "Amplificador", 5000), 1);
+            order.AddItem(new Item(3, "Cabo", 30), 3);
+
+            //Act
+            var code = order.GetCode();
+
+            //Assert
+            Assert.Equal("202200000001", code);
         }
     }   
 }

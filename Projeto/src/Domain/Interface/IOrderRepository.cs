@@ -1,4 +1,4 @@
-﻿using Domain.DTO;
+﻿using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace Domain.Interface
 {
-    public interface IPreviewOrder
+    public interface IOrderRepository
     {
-        Task<OrderResponse> Execute(OrderSend input);
+        Task Save(Order order);
+        Task<int> Count();
+        Task Clean();
     }
 }

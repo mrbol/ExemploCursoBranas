@@ -8,13 +8,13 @@ namespace Integration
     public class ApiTest
     {
         private string _url;
-        private OrderPreviewResponse _orderPreviewResponse;
+        private OrderResponse _orderPreviewResponse;
         private JsonSerializerOptions _options;
 
         public ApiTest()
         {
             _url = "https://localhost:44374";
-            _orderPreviewResponse = new OrderPreviewResponse() { Total = 0 };
+            _orderPreviewResponse = new OrderResponse() { Total = 0 };
             _options = new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true,
@@ -44,7 +44,7 @@ namespace Integration
             var response = await client.PostAsync("/api/OrderPreview", jsonContent);
             if (response.IsSuccessStatusCode)
             {
-                _orderPreviewResponse = JsonSerializer.Deserialize<OrderPreviewResponse>(response.Content.ReadAsStringAsync().Result, _options);
+                _orderPreviewResponse = JsonSerializer.Deserialize<OrderResponse>(response.Content.ReadAsStringAsync().Result, _options);
             }
 
             //Assert

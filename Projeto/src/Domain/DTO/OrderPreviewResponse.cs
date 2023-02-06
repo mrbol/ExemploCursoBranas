@@ -1,11 +1,12 @@
 ﻿namespace Domain.DTO
 {
-    public class OrderPreviewResponse
+    public class OrderResponse
     {
-        public OrderPreviewResponse()
+        public OrderResponse()
         {
             
         }
+        public string Code { get; set; }
         public decimal Total { get; set; }
     }
 }

@@ -13,19 +13,14 @@ namespace Domain.Entities
         protected int _statusCode = (int)HttpStatusCode.BadRequest;
         protected string _title = "Bad Request";
         protected string _type = "https://www.rfc-editor.org/rfc/rfc7231#section-6.5.1";
-
         public int StatusCode { get => _statusCode;}
         public string Title { get => _title;}
         public string Type { get => _type;}
 
-        public AppException() : base() {
-        }
-        public AppException(string message) : base(message) {
-        }
+        public AppException() : base() {}
+        public AppException(string message) : base(message) {}
         public AppException(string message, params object[] args)
-            : base(String.Format(CultureInfo.CurrentCulture, message, args))
-        {
-        }
+            : base(String.Format(CultureInfo.CurrentCulture, message, args)){}
     }
 
     public class AppExceptionNotFound : AppException
@@ -44,17 +39,7 @@ namespace Domain.Entities
 
     public class AppExceptionBadRequest : AppException
     {
-        public AppExceptionBadRequest() : base()
-        {
-            _statusCode = (int)HttpStatusCode.BadRequest;
-            _title = "One or more validation errors occurred";
-            _type = "https://www.rfc-editor.org/rfc/rfc7231#section-6.5.1";
-        }
-        public AppExceptionBadRequest(string message) : base(message)
-        {
-            _statusCode = (int)HttpStatusCode.BadRequest;
-            _title = "One or more validation errors occurred";
-            _type = "https://www.rfc-editor.org/rfc/rfc7231#section-6.5.1";
-        }
+        public AppExceptionBadRequest() : base(){}
+        public AppExceptionBadRequest(string message) : base(message){}
     }
 }

@@ -23,7 +23,7 @@ namespace Infra.Persistence
 
         public async Task<Item> GetItem(int idItem)
         {            
-            var itemModel = await _dapperAdapter.Query<ItemModel>($"Select id_item,description,price,width,height,length,weight from ccca.item where id_item = {idItem}");
+            var itemModel = await _dapperAdapter.QuerySingle<ItemModel>($"Select id_item,description,price,width,height,length,weight from ccca.item where id_item = {idItem}");
             return new Item(itemModel.id_item, itemModel.description, itemModel.price, new Dimension(itemModel.width, itemModel.height, itemModel.length, itemModel.weight));
         }
     }

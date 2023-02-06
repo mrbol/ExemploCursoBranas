@@ -1,13 +1,14 @@
 ﻿namespace Domain.DTO
 {
-    public class OrderPreviewSend
+    public class OrderSend
     {
-        public OrderPreviewSend()
+        public OrderSend()
         {
             Cpf = string.Empty;
             OrderItens = new List<OrderItemSend>();
         }
         public string Cpf { get; set; }
+        public DateTime Date { get; set; }
         public List<OrderItemSend> OrderItens { get; set; }
     }
 }

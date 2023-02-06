@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Interface
 {
-    public interface IPreviewOrder
+    public interface ICheckout
     {
         Task<OrderResponse> Execute(OrderSend input);
     }

@@ -7,41 +7,36 @@ using NSubstitute;
 
 namespace Integration
 {
-    public class PreviewOrderTest
+    public class SimulateFreightTest
     {
         private readonly IDapperAdapter _dapperAdapter;
         private readonly IConfiguration _configuration;
-        private OrderResponse _orderPreviewResponse;
-        public PreviewOrderTest()
+        public SimulateFreightTest()
         {
-            _orderPreviewResponse = new OrderResponse() { Total = 0 };
             _configuration = Substitute.For<IConfiguration>();
             _configuration.GetConnectionString("DefaultConnection").Returns("Server=(localdb)\\mssqllocaldb;Database=ApiInicial;Trusted_Connection=True;MultipleActiveResultSets=true");
             _dapperAdapter = new DapperAdapter(_configuration);
         }
 
-        [Fact(DisplayName = "Deve simular compra")]
-        public async Task Simular_CompraAsync()
+        [Fact(DisplayName = "Deve simular o frete")]
+        public async Task Simular_FreteAsync()
         {
-            //Arrange
-            int total = 6350;
+            //arrange
             IItemRepository itemRepository = new ItemRepositoryDatabase(_dapperAdapter);
-            PreviewOrder previewOrder = new PreviewOrder(itemRepository);
-            OrderSend orderPreviewSend = new OrderSend
-            {
-                Cpf = "886.634.854-68",
-                OrderItens = new List<OrderItemSend>() {
+            var simulateFreight = new SimulateFreight(itemRepository);
+
+            //action
+            var response = await simulateFreight.Execute(new FreightSend()
+            { OrdemItems = new List<OrderItemSend>() {
                     new OrderItemSend { IdItem = 1, Quantity = 1 },
                     new OrderItemSend{ IdItem = 2, Quantity = 1 },
                     new OrderItemSend{ IdItem = 3, Quantity = 3 }
                 }
-            };
-            //act
-            _orderPreviewResponse = await previewOrder.Execute(orderPreviewSend);
-            //Assert
-            Assert.Equal(total, _orderPreviewResponse?.Total);
-            //Fechando a conexão manualmente 
+               
+            });
+            //assert
+            Assert.Equal(260, response.Total);
             await _dapperAdapter.CloseAsync();
         }
-    }
+}
 }

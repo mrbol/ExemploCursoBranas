@@ -1,7 +1,4 @@
-﻿using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
-using System.Xml.Linq;
-using System.ComponentModel.DataAnnotations;
-using Domain.Entities;
+﻿using Domain.Entities;
 
 namespace Unit
 {

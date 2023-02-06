@@ -16,10 +16,10 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(OrderPreviewSend orderPreviewSend)
+        public async Task<IActionResult> Post(OrderSend orderPreviewSend)
         {
-            OrderPreviewResponse response = await _previewOrder.Execute(orderPreviewSend);
-            return Ok(new OrderPreviewResponse() { Total = response.Total });
+            OrderResponse response = await _previewOrder.Execute(orderPreviewSend);
+            return Ok(new OrderResponse() { Total = response.Total });
         }
     }
 }

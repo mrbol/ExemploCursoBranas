@@ -26,17 +26,27 @@ namespace Infra.Persistence
             _connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));            
         }
 
-        public async Task<T> Query<T>(string statement)
-        {
-            T? item;
+        public async Task<T> QuerySingle<T>(string statement)
+        {         
             if(_connection.State == ConnectionState.Closed) await _connection.OpenAsync();
-            IEnumerable<T> items = await _connection.QueryAsync<T>(statement);
-            item = (items.Any()) ? items.FirstOrDefault() : default;
+            var item = await _connection.QuerySingleAsync<T>(statement);
             if (item == null)
             {
                 throw new AppExceptionNotFound("The searched item was not found. check the entered value.");
             }
             return item;
+        }
+
+        public async Task<T> ExecuteScalar<T>(string statement,object? param)
+        {
+            if (_connection.State == ConnectionState.Closed) await _connection.OpenAsync();
+            return await _connection.ExecuteScalarAsync<T>(statement,param);
+        }
+
+        public async Task<int> Execute(string statement,object? param)
+        {
+            if (_connection.State == ConnectionState.Closed) await _connection.OpenAsync();
+            return await _connection.ExecuteAsync(statement,param);
         }
 
         public async Task CloseAsync()
@@ -51,5 +61,7 @@ namespace Infra.Persistence
         {
             _connection?.Dispose();
         }
+
+    
     }
 }

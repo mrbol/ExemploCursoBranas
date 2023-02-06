@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Domain.DTO;
+﻿using Domain.DTO;
 using Domain.Entities;
 using Domain.Interface;
 
@@ -18,7 +12,7 @@ namespace Application
             _itemRepository = itemRepository;
         }
 
-        public async Task<OrderPreviewResponse> Execute(OrderPreviewSend orderPreview)
+        public async Task<OrderResponse> Execute(OrderSend orderPreview)
         {
             Order order = new Order(orderPreview.Cpf);
             foreach (OrderItemSend orderItem in orderPreview.OrderItens)
@@ -26,7 +20,7 @@ namespace Application
                 Item item = await _itemRepository.GetItem(orderItem.IdItem);
                 order.AddItem(item, orderItem.Quantity);
             }
-            return new OrderPreviewResponse() { Total = order.GetTotal() };
+            return new OrderResponse() { Total = order.GetTotal() };
         }
     }
 }
