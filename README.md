@@ -16,3 +16,4 @@ Uma aplicação completa, do frontend ao backend, dividida em vários microservi
 - [x] Estruturado em camadas (fisica e logica) com o foco em Clean Architecture.
 - [x] Clean Architecture - Parte 2
 - [x] Clean Architecture - Parte 3
+- [ ] Domain-Driven Design - Parte 1
