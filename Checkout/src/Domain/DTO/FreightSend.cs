@@ -10,6 +10,8 @@ namespace Domain.DTO
 {
     public class FreightSend
     {
+        public string From { get; set; }
+        public string To { get; set; }
         public List<OrderItemSend> OrdemItems { get; set; }
 
         public FreightSend()

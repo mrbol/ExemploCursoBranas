@@ -6,7 +6,8 @@ namespace Unit
 {
     public class DistanceCalculatorTest
     {
-        [Fact]
+        [Fact(DisplayName = "Deve calcular a distancia entre duas cidades")]
+        [Trait("Categoria", "Calcular - Frete")]
         public void Calcular_Distancia_EntreDuasCidades()
         {
 

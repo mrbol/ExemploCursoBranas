@@ -4,6 +4,7 @@ using Domain.Interface;
 using Infra.Persistence;
 using Application;
 using NSubstitute;
+using Infra.Gateway;
 
 namespace Integration
 {
@@ -19,24 +20,29 @@ namespace Integration
         }
 
         [Fact(DisplayName = "Deve simular o frete")]
+        [Trait("Categoria", "Checkout - Calcular frete")]
         public async Task Simular_FreteAsync()
         {
             //arrange
             IItemRepository itemRepository = new ItemRepositoryDatabase(_dapperAdapter);
-            var simulateFreight = new SimulateFreight(itemRepository);
+            ICalculateFreightGateway calculateFreightGateway = new CalculateFreightHttpGateway();
+            var simulateFreight = new SimulateFreight(itemRepository, calculateFreightGateway);
 
             //action
             var response = await simulateFreight.Execute(new FreightSend()
-            { OrdemItems = new List<OrderItemSend>() {
+            {
+                From = "22060030",
+                To = "88015600",
+                OrdemItems = new List<OrderItemSend>() {
                     new OrderItemSend { IdItem = 1, Quantity = 1 },
                     new OrderItemSend{ IdItem = 2, Quantity = 1 },
                     new OrderItemSend{ IdItem = 3, Quantity = 3 }
                 }
-               
+
             });
             //assert
-            Assert.Equal(260, response.Total);
+            Assert.Equal(202.09, (double)response.Total);
             await _dapperAdapter.CloseAsync();
         }
-}
+    }
 }
