@@ -16,9 +16,10 @@ Uma aplicação completa, do frontend ao backend, dividida em vários microservi
 - [x] Estruturado em camadas (fisica e logica) com o foco em Clean Architecture.
 - [x] Clean Architecture - Parte 2
 - [x] Clean Architecture - Parte 3
+
 ### ⌛ Domain-Driven Design (Em andamento)
 - [x] Domain-Driven Design - Parte 1
 - [x] Implementação do Projeto - Parte 4 (DDD, Bounded Context e Microservice)
   - [Checkout](https://github.com/mrbol/ExemploCursoBranas/tree/master/Checkout)
   - [Freight](https://github.com/mrbol/ExemploCursoBranas/tree/master/Freight) 
-
+> Veja um exemplo de uma chamada externa para [simular calculo de frete](https://github.com/mrbol/ExemploCursoBranas/blob/master/Checkout/test/Integration/SimulateFreightTest.cs). 
