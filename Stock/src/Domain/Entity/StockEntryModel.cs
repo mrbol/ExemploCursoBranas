@@ -8,6 +8,9 @@ namespace Domain.Entity
 {
     public class StockEntryModel
     {
+        public StockEntryModel() {
+            operation = string.Empty;
+        }
         public int id_stock_entry { get; set; }
         public int id_item { get; set; }
         public string operation { get; set; }

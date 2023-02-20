@@ -20,13 +20,13 @@ namespace WebAPI.Controllers
             _incrementStock = incrementStock;
         }
 
-        [HttpPost("Increment")]
+        [HttpPost("IncrementStock")]
         public async Task<IActionResult> IncrementStock(List<StockSend> stockSend)
         {
             await _incrementStock.Execute(stockSend);
             return Ok();
         }
-        [HttpPost("Decrement")]
+        [HttpPost("DecrementStock")]
         public async Task<IActionResult> DecrementStock(List<StockSend> stockSend)
         {
             await _decrementStock.Execute(stockSend);
