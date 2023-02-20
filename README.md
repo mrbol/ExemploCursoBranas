@@ -22,3 +22,4 @@ Uma aplicação completa, do frontend ao backend, dividida em vários microservi
 - [ ] Implementação do Projeto - Parte 4 (DDD, Bounded Context e Microservice)
   - ⏳ [Checkout](https://github.com/mrbol/ExemploCursoBranas/tree/master/Checkout)
   - ⏳ [Freight](https://github.com/mrbol/ExemploCursoBranas/tree/master/Freight) 
+  - ⏳ [Stock](https://github.com/mrbol/ExemploCursoBranas/tree/master/Stock) 
