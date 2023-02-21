@@ -33,7 +33,7 @@ namespace WebAPI.Controllers
             return Ok();
         }
 
-        [HttpGet("{idItem}")]
+        [HttpGet("{idItem:int}")]
         public async Task<IActionResult> GetStock(int idItem)
         {
             return Ok(await _getStock.Execute(idItem));
